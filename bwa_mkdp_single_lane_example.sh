@@ -9,7 +9,6 @@ rm /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293.sam
 source activate gatk
 picard SortSam -I /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293.bam -O /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_sorted.bam --SORT_ORDER queryname > /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_sorted.log 2>&1
 rm /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293.bam
-source activate gatk
 cd /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293
 /prj/ycc-backup/software/gatk-4.2.5.0/gatk HaplotypeCaller -R /prj/ycc-backup/ParusMA/pma.01.03/ref/GCF_001522545.3_Parus_major1.1_genomic.fna -I /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_sorted_dedup.bam -O /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_raw_variants.vcf --tmp-dir /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_tmp/ > /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_bqsr.log 2>&1
 /prj/ycc-backup/software/gatk-4.2.5.0/gatk SelectVariants -R /prj/ycc-backup/ParusMA/pma.01.03/ref/GCF_001522545.3_Parus_major1.1_genomic.fna -V /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_raw_variants.vcf -select-type-to-include SNP -O /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_raw_snps.vcf --tmp-dir /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_tmp/ >> /prj/ycc-backup/ParusMA/pma.01.03/ready_reads.1/SRR5423293/SRR5423293_bqsr.log 2>&1
